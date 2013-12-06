@@ -2,8 +2,8 @@ require 'active_record'
 require 'active_record/fixtures'
 
 namespace :db do
-  desc "populate book and author DB"
-  task :scholastic_rails_interview => :environment do
+  desc "scholastics rails interview"
+  task :populate_db=> :environment  do
   require 'factory_girl'
   require 'faker'
 

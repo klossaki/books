@@ -17,13 +17,13 @@
     <td><%= book.author.name %></td>
     <td><%= book.ISBN_10 %></td>
     <td><%= book.ISBN_13 %></td>
-    <td><%= link_to 'Show', book %></td>
-    <td><%= link_to 'Edit', edit_book_path(book) %></td>
-    <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%# link_to 'Show', author_books %></td>
+    <td><%# link_to 'Edit', edit_author_book_path(book) %></td>
+    <td><%# link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Book', new_book_path %>
+<%# link_to 'New Book', new_book_path %>

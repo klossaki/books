@@ -34,13 +34,15 @@ class BooksController < ApplicationController
 
   # GET /books/1/edit
   def edit
-    @book = Book.find(params[:id])
+    @author = Author.find(params[:author_id])
+    @book = @author.books.find(params[:id])
   end
 
   # POST /books
   # POST /books.json
   def create
-    @book = Book.new(params[:book])
+    @author = Author.find(params[:author_id])
+    @book = @author.books.build(params[:book])
 
     respond_to do |format|
       if @book.save
@@ -56,15 +58,15 @@ class BooksController < ApplicationController
   # PUT /books/1
   # PUT /books/1.json
   def update
-    @book = Book.find(params[:id])
+    @author = Author.find(params[author_id])
+    @book = @author.books.find(params[:id])
 
     respond_to do |format|
       if @book.update_attributes(params[:book])
-        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
+        format.html { redirect_to author_path(@author), notice: 'Book was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
+        render :action => :edit
       end
     end
   end
