@@ -1,9 +1,8 @@
 RailsInterview::Application.routes.draw do
 
-  resources :authors do
-    resources :books
-  end
-  root :to => 'authors#index'
+  resources :authors 
+  resources :books
+  root :to => 'books#index'
 
 
   # The priority is based upon order of creation:
