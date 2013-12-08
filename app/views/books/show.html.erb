@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title:</b>
-  <%= @book.title %>
+  <b>Author:</b>
+  <%= @book.author.name %>
 </p>
 
+
 <p>
-  <b>Author:</b>
-  <%= @book.author_id %>
+  <b>Title:</b>
+  <%= @book.title %>
 </p>
 
 <p>
@@ -18,8 +19,14 @@
 <p>
   <b>Isbn 13:</b>
   <%= @book.ISBN_13 %>
+  </p>
+
+<p>
+  <b>Rank:</b>
+  <%= @book.rank %>
 </p>
 
 
-<%= link_to 'Edit', edit_author_book_path(@book) %> |
-<%= link_to 'Back', author_books_path %>
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>

@@ -13,11 +13,12 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = Books.find(params[:id])
+    @book = Book.find(params[:id])
   end
 
   def create
     @book = Book.new(params[:book])
+    @book.user_id = current_user.id
 
       if @book.save
         redirect_to @book
@@ -30,7 +31,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
 
       if @book.update_attributes(params[:book])
-        redirect_to @author
+        redirect_to books_url
       else
         render :action => :edit
       end

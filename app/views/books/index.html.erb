@@ -1,4 +1,4 @@
-<h1>Listing books</h1>
+<h1>Scholastic Popular Books</h1>
 
 <table>
   <tr>
@@ -6,24 +6,33 @@
     <th>Author</th>
     <th>Isbn 10</th>
     <th>Isbn 13</th>
+  <% if user_signed_in? %>
+    <th>Rank</th>
     <th></th>
     <th></th>
-    <th></th>
+  <% end %>
   </tr>
 
+<% even_odd = 0 %>
 <% @books.each do |book| %>
-  <tr>
-    <td><%= book.title %></td>
+   <% even_odd = 1 - even_odd %>
+  <tr class="background<%= even_odd %>">
+    <td><%= truncate(book.title, length: 65, seperator: '...') %></td>
     <td><%= book.author.name %></td>
     <td><%= book.ISBN_10 %></td>
     <td><%= book.ISBN_13 %></td>
-    <td><%# link_to 'Show', author_books %></td>
-    <td><%# link_to 'Edit', edit_author_book_path(book) %></td>
-    <td><%# link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<% if user_signed_in? %>
+    <td><%= book.rank %></td>
+    <td><%= link_to 'Show', book %></td>
+    <td><%= link_to 'Edit', edit_book_path(book) %></td>
+    <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%# link_to 'New Book', new_book_path %>
+<% if user_signed_in? %>
+  <b> <%= link_to 'New Book', new_book_path %></b>
+<% end %>

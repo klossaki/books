@@ -1,5 +1,5 @@
 RailsInterview::Application.routes.draw do
-
+devise_for :users
   resources :authors 
   resources :books
   root :to => 'books#index'

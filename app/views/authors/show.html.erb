@@ -1,6 +1,7 @@
+
 <ul>
 <p>
-  <b>Name:</b>
+<b>Books by <%= @author.name %></b>
   <% @author.books.each do |author| %>
     <li><%= author.title %></li>
   <% end %>
@@ -8,5 +9,5 @@
 </ul>
 
 
-<%= link_to 'Edit', edit_author_book_path(:author_id => @author.id)  %>
-<%# link_to 'Back', authors_path %>
+<%= link_to 'Edit', edit_author_path(:author_id => @author.id)  %>
+<%= link_to 'Back', authors_path %>
