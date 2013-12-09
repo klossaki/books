@@ -20,4 +20,11 @@ FactoryGirl.define do
     ISBN_13 { generate(:ISBN_13_NUM) }
     rank    { generate(:RANK_NUM) }
   end
+
+  factory :book_1, class: Book do
+    title "The Great Gatsby"
+    ISBN_10 1111111111
+    ISBN_13 2222222222222
+    rank 3333
+  end
 end

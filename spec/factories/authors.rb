@@ -1,6 +1,6 @@
 
 FactoryGirl.define do
   factory :author, class: Author do
-    name { Faker::Name.name  }
+    name 'Albert McKeever'
   end
 end
