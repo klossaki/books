@@ -11,6 +11,9 @@ validates_presence_of :title
   
   before_save :unique_ISBN_numbers
 
+  ##
+  # Order by rank then title
+
   default_scope self.order("rank ASC")
 
   ## 
