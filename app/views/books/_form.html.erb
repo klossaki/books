@@ -20,6 +20,10 @@
     <%= collection_select(:book, :author_id, Author.all, :id, :name, {:prompt => true})%>
   </div>
   <div class="field">
+    <%= f.label :add_a_new_author %>
+    <%= link_to 'New Author', new_author_path(@author) %>
+   </div>
+  <div class="field">
     <%= f.label :ISBN_10 %>
     <%= f.number_field :ISBN_10 %>
   </div>
@@ -28,7 +32,7 @@
     <%= f.number_field :ISBN_13 %>
   </div>
   <div class="field">
-    <%= f.label :RANK %>
+    <%= f.label :Rank %>
     <%= f.number_field :rank %>
   </div>
   <div class="actions">

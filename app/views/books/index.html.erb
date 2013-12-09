@@ -1,13 +1,19 @@
 <h1>Scholastic Popular Books</h1>
 
+
+<% if user_signed_in? %>
+  <b> <%= link_to 'Add New Book', new_book_path %></b>
+<% end %> 
+
+
 <table>
   <tr>
-    <th>Title</th>
+    <th><%= sortable 'Title', 'Title' %></th>
     <th>Author</th>
     <th>Isbn 10</th>
     <th>Isbn 13</th>
   <% if user_signed_in? %>
-    <th>Rank</th>
+    <th><%= sortable 'Rank', 'Rank' %></th>
     <th></th>
     <th></th>
   <% end %>
@@ -33,6 +39,3 @@
 
 <br />
 
-<% if user_signed_in? %>
-  <b> <%= link_to 'New Book', new_book_path %></b>
-<% end %>

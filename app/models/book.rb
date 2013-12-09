@@ -11,14 +11,11 @@ validates_presence_of :title
   
   before_save :unique_ISBN_numbers
 
-  ##
-  # Order by rank then title
+  # Sort rank in ascending then sort title
+  scope :rank_title_asc, lambda { order("rank ASC" ).order("title ASC")}
 
-  default_scope self.order("rank ASC")
-
-  ## 
+   
   # TODO: Add a ruby interpolation method so that the ISBN #'s can be displayed along with the msg.
-
   def unique_ISBN_numbers
     if Book.find_by_ISBN_10_and_ISBN_13(self.ISBN_10, self.ISBN_13).present?
       errors.add(:base, "the ISBN number has already been taken")

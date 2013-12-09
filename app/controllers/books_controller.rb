@@ -1,7 +1,9 @@
 class BooksController < ApplicationController
+ helper_method :sort_column, :sort_direction
 
   def index
-    @books = Book.all
+    @books = Book.order(sort_column + " " + sort_direction)
+    # @books = Book.rank_title_asc
   end
 
   def show
@@ -10,6 +12,7 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    @author = Author.new
   end
 
   def edit
@@ -43,4 +46,14 @@ class BooksController < ApplicationController
 
     redirect_to books_url 
   end
+
+  private
+    def sort_column
+     params[:sort] || "rank" 
+    end
+
+    def sort_direction
+      params[:direction] || "asc"
+    end
+
 end

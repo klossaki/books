@@ -21,7 +21,7 @@ class AuthorsController < ApplicationController
     @author = Author.new(params[:author])
 
     if @author.save
-      redirect_to @author
+      redirect_to '/books/new'
     else
       render action: "new" 
     end
