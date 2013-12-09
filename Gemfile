@@ -23,7 +23,7 @@ end
 gem 'jquery-rails'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'rspec-rails'
   gem 'faker'
   gem 'devise'
   gem 'factory_girl_rails', :require => false
